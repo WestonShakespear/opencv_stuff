@@ -10,21 +10,33 @@ public class Program {
     public static int Main(string[] args)
     {
 
-        var rootCommand = new RootCommand("Sample app for System.CommandLine");
+        string desc = "Create Aruco Markers!\r\n\r\nDictionaries:\r\n";
+        
+        foreach (string key in dictList.Keys)
+        {
+            desc += "  " + key + "\r\n";
+        }
+
+
+
+        var rootCommand = new RootCommand(desc);
 
         var imageSizeOption = new Option<int>(
             name: "--size",
-            description: "Set the pixel ratio used for the output image"
+            description: "Set the pixel ratio used for the output image",
+            getDefaultValue: () => 500
         );
 
         var xSizeOption = new Option<int>(
             name: "-x",
-            description: "The number of tiles in the x direction"
+            description: "The number of tiles in the x direction",
+            getDefaultValue: () => 2
         );
 
         var ySizeOption = new Option<int>(
             name: "-y",
-            description: "The number of tiles in the y direction"
+            description: "The number of tiles in the y direction",
+            getDefaultValue: () => 2
         );
 
         var dictOption = new Option<string>(
@@ -35,12 +47,14 @@ public class Program {
 
         var squareLengthOption = new Option<float>(
             name: "--square-length",
-            description: "Set the size of blank squares"
+            description: "Set the size of blank squares",
+            getDefaultValue: () => 1.0f
         );
 
         var markerLengthOption = new Option<float>(
             name: "--marker-length",
-            description: "Set the size of marker squares"
+            description: "Set the size of marker squares",
+            getDefaultValue: () => 0.8f
         );
 
 
@@ -117,14 +131,38 @@ public class Program {
             } 
         });
     }
+    public static Dictionary<string, PredefinedDictionaryName> dictList = new Dictionary<string, PredefinedDictionaryName>()
+        {
+            {"4_50",    PredefinedDictionaryName.Dict4X4_50},
+            {"4_100",   PredefinedDictionaryName.Dict4X4_100},
+            {"4_250",   PredefinedDictionaryName.Dict4X4_250},
+            {"4_1000",  PredefinedDictionaryName.Dict4X4_1000},
+            
+            {"5_50",    PredefinedDictionaryName.Dict5X5_50},
+            {"5_100",   PredefinedDictionaryName.Dict5X5_100},
+            {"5_250",   PredefinedDictionaryName.Dict5X5_250},
+            {"5_1000",  PredefinedDictionaryName.Dict5X5_1000},
+
+            {"6_50",    PredefinedDictionaryName.Dict6X6_50},
+            {"6_100",   PredefinedDictionaryName.Dict6X6_100},
+            {"6_250",   PredefinedDictionaryName.Dict6X6_250},
+            {"6_1000",  PredefinedDictionaryName.Dict6X6_1000},
+
+            {"7_50",    PredefinedDictionaryName.Dict7X7_50},
+            {"7_100",   PredefinedDictionaryName.Dict7X7_100},
+            {"7_250",   PredefinedDictionaryName.Dict7X7_250},
+            {"7_1000",  PredefinedDictionaryName.Dict7X7_1000},
+
+            {"original",    PredefinedDictionaryName.DictArucoOriginal},
+            {"april_16h5",  PredefinedDictionaryName.DictAprilTag16h5},
+            {"april_25h9",  PredefinedDictionaryName.DictAprilTag25h9},
+            {"april_36h10", PredefinedDictionaryName.DictAprilTag36h10},
+            {"april_36h11", PredefinedDictionaryName.DictAprilTag36h11}
+        };
 
     public static PredefinedDictionaryName? parseDictionaryFromString(string dict)
     {
-        Dictionary<string, PredefinedDictionaryName> dictList = new Dictionary<string, PredefinedDictionaryName>()
-        {
-            {"4_50", Dictionary.PredefinedDictionaryName.Dict4X4_50},
-            {"4_100", Dictionary.PredefinedDictionaryName.Dict4X4_100}
-        };
+        
 
         if (!dictList.ContainsKey(dict))
         {
