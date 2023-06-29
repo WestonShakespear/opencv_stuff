@@ -1,5 +1,6 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Aruco;
+using static Emgu.CV.Aruco.Dictionary;
 
 using System.CommandLine;
 
@@ -9,24 +10,12 @@ public class Program {
     public static int Main(string[] args)
     {
 
-        var fileOption = new Option<FileInfo?>(
-            name: "--file",
-            description: "The file to read and display on the console.");
+        var rootCommand = new RootCommand("Sample app for System.CommandLine");
 
-        var delayOption = new Option<int>(
-            name: "--delay",
-            description: "Delay between lines, specified as milliseconds per character in a line.",
-            getDefaultValue: () => 42);
-
-        var fgcolorOption = new Option<ConsoleColor>(
-            name: "--fgcolor",
-            description: "Foreground color of text displayed on the console.",
-            getDefaultValue: () => ConsoleColor.White);
-
-        var lightModeOption = new Option<bool>(
-            name: "--light-mode",
-            description: "Background color of text displayed on the console: default is black, light mode is white.");
-
+        var imageSizeOption = new Option<int>(
+            name: "--size",
+            description: "Set the pixel ratio used for the output image"
+        );
 
         var xSizeOption = new Option<int>(
             name: "-x",
@@ -38,90 +27,130 @@ public class Program {
             description: "The number of tiles in the y direction"
         );
 
+        var dictOption = new Option<string>(
+            name: "--dict",
+            description: "Selects the dictionary to use",
+            getDefaultValue: () => "4_50"
+        );
 
-        var rootCommand = new RootCommand("Sample app for System.CommandLine");
-        //rootCommand.AddOption(fileOption);
+        var squareLengthOption = new Option<float>(
+            name: "--square-length",
+            description: "Set the size of blank squares"
+        );
 
-        var readCommand = new Command("read", "Read and display the file.")
+        var markerLengthOption = new Option<float>(
+            name: "--marker-length",
+            description: "Set the size of marker squares"
+        );
+
+
+
+        var arucoCommand = new Command("aruco", "Create a single aruco marker")
             {
-                fileOption,
-                delayOption,
-                fgcolorOption,
-                lightModeOption
+                imageSizeOption,
+                dictOption
             };
-        rootCommand.AddCommand(readCommand);
 
-
-        var arucoCommand = new Command("aruco", "Create a single aruco marker");
+        arucoCommand.SetHandler(async (dict) =>
+            {
+                await RunAruco(dict);
+            },
+            dictOption);
 
         rootCommand.AddCommand(arucoCommand);
 
+
         var arucoBoardCommand = new Command("board", "Create a grid of aruco markers")
         {
+            imageSizeOption,
+            dictOption,
             xSizeOption,
-            ySizeOption
+            ySizeOption,
+            squareLengthOption,
+            markerLengthOption
         };
+
+        arucoBoardCommand.SetHandler(async (dict, x, y, squareLength, markerLength) =>
+            {
+                await RunGridBoard(dict, x, y, squareLength, markerLength);
+            },
+            dictOption, xSizeOption, ySizeOption, squareLengthOption, markerLengthOption);
 
         rootCommand.AddCommand(arucoBoardCommand);
 
         var charucoCommand = new Command("charuco", "Create a charuco board")
         {
+            dictOption,
             xSizeOption,
             ySizeOption
         };
 
         rootCommand.AddCommand(charucoCommand);
 
-        // readCommand.SetHandler(async (file, delay, fgcolor, lightMode) =>
-        //     {
-        //         await ReadFile(file!, delay, fgcolor, lightMode);
-        //     },
-        //     fileOption, delayOption, fgcolorOption, lightModeOption);
-
         return rootCommand.InvokeAsync(args).Result;
-
-
-        
-
-        // command.AddOption(xSizeOption);
-        // command.AddOption(ySizeOption);
-
-        //Mat? output = generateGridBoard();
-
-        // Mat output = new Mat();
-
-        
-
-        // if (output is not null)
-        // {
-        //     CvInvoke.Imshow("output", output);
-        //     CvInvoke.WaitKey(0);
-        //     CvInvoke.DestroyAllWindows();
-        // }
     }
 
-    internal static async Task ReadFile(
-            FileInfo file, int delay, ConsoleColor fgColor, bool lightMode)
+
+
+    internal static async Task RunAruco(string dict)
     {
-        Console.BackgroundColor = lightMode ? ConsoleColor.White : ConsoleColor.Black;
-        Console.ForegroundColor = fgColor;
-        List<string> lines = File.ReadLines(file.FullName).ToList();
-        foreach (string line in lines)
+        await Task.Run(() => {
+            PredefinedDictionaryName? useDict = parseDictionaryFromString(dict);
+
+            if (useDict is not null)
+            {
+                Mat? image = generateGridBoard(1, 1, 1.0f, 0.8f, (PredefinedDictionaryName)useDict);
+                output(image, "name", false); 
+            } 
+        });   
+    }
+
+    internal static async Task RunGridBoard(string dict, int x, int y, float squareLength, float markerLength)
+    {
+        await Task.Run(() => {
+            PredefinedDictionaryName? useDict = parseDictionaryFromString(dict);
+
+            if (useDict is not null)
+            {
+                Mat? image = generateGridBoard(x, y, squareLength, markerLength, (PredefinedDictionaryName)useDict);
+                output(image, "name", false); 
+            } 
+        });
+    }
+
+    public static PredefinedDictionaryName? parseDictionaryFromString(string dict)
+    {
+        Dictionary<string, PredefinedDictionaryName> dictList = new Dictionary<string, PredefinedDictionaryName>()
         {
-            Console.WriteLine(line);
-            await Task.Delay(delay * line.Length);
+            {"4_50", Dictionary.PredefinedDictionaryName.Dict4X4_50},
+            {"4_100", Dictionary.PredefinedDictionaryName.Dict4X4_100}
         };
+
+        if (!dictList.ContainsKey(dict))
+        {
+            return null;
+        } 
+        Console.WriteLine("Using {0} dictionary", dict);
+        return dictList[dict];
     }
 
-    public static Mat? generateGridBoard()
+
+    public static void output(Mat? image, string name, bool save)
     {
-        Dictionary dict = new Dictionary(Dictionary.PredefinedDictionaryName.Dict4X4_50);
+        if (image is not null)
+        {
+            CvInvoke.Imshow(name, image);
+            CvInvoke.WaitKey(0);
+            CvInvoke.DestroyAllWindows();
+        }
+    }
 
-        int xSize = 1;
-        int ySize = 1;
-
-        float squareLength = 1.0f;
-        float markerLength = 0.8f;
+    public static Mat? generateGridBoard(
+        int xSize, int ySize,
+        float squareLength, float markerLength,
+        PredefinedDictionaryName dictName)
+    {
+        Dictionary dict = new Dictionary(dictName);
 
         if (!(markerLength < squareLength))
         {
