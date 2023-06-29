@@ -20,6 +20,18 @@
           }
         }
       },
+      "Emgu.CV.runtime.ubuntu-x64/4.7.0.5276": {
+        "type": "package",
+        "dependencies": {
+          "Emgu.CV": "4.7.0.5276"
+        },
+        "runtimeTargets": {
+          "runtimes/ubuntu-x64/native/libcvextern.so": {
+            "assetType": "native",
+            "rid": "ubuntu-x64"
+          }
+        }
+      },
       "Emgu.CV.runtime.windows/4.7.0.5276": {
         "type": "package",
         "dependencies": {
@@ -187,6 +199,60 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "System.CommandLine/2.0.0-beta4.22272.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.CommandLine.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.CommandLine.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net6.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net6.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net6.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net6.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net6.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net6.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net6.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net6.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net6.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net6.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net6.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net6.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net6.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
         }
       },
       "System.Drawing.Primitives/4.3.0": {
@@ -433,6 +499,21 @@
         "lib/xamarinios10/Emgu.CV.xml"
       ]
     },
+    "Emgu.CV.runtime.ubuntu-x64/4.7.0.5276": {
+      "sha512": "01w8siYypBCkRnHRzImKGIVPqOIyF01TTtQqCMM8GihveDoeF4KvKBkeO38fwMlQzzZHHaIiZfnSP16maalmDQ==",
+      "type": "package",
+      "path": "emgu.cv.runtime.ubuntu-x64/4.7.0.5276",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "docs/README.md",
+        "emgu.cv.runtime.ubuntu-x64.4.7.0.5276.nupkg.sha512",
+        "emgu.cv.runtime.ubuntu-x64.nuspec",
+        "icon.png",
+        "runtimes/ubuntu-x64/native/libcvextern.so"
+      ]
+    },
     "Emgu.CV.runtime.windows/4.7.0.5276": {
       "sha512": "SWg2+YQuvgZQAHtg/SqxvjNjhPCMi5qoFwUTPU71CqgtRJQLrvQBkSK6htGbgikvdma6oVuc995/UTlde99ZiQ==",
       "type": "package",
@@ -559,6 +640,50 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.3.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "System.CommandLine/2.0.0-beta4.22272.1": {
+      "sha512": "1uqED/q2H0kKoLJ4+hI2iPSBSEdTuhfCYADeJrAqERmiGQ2NNacYKRNEQ+gFbU4glgVyK8rxI+ZOe1onEtr/Pg==",
+      "type": "package",
+      "path": "system.commandline/2.0.0-beta4.22272.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/System.CommandLine.dll",
+        "lib/net6.0/System.CommandLine.pdb",
+        "lib/net6.0/System.CommandLine.xml",
+        "lib/net6.0/cs/System.CommandLine.resources.dll",
+        "lib/net6.0/de/System.CommandLine.resources.dll",
+        "lib/net6.0/es/System.CommandLine.resources.dll",
+        "lib/net6.0/fr/System.CommandLine.resources.dll",
+        "lib/net6.0/it/System.CommandLine.resources.dll",
+        "lib/net6.0/ja/System.CommandLine.resources.dll",
+        "lib/net6.0/ko/System.CommandLine.resources.dll",
+        "lib/net6.0/pl/System.CommandLine.resources.dll",
+        "lib/net6.0/pt-BR/System.CommandLine.resources.dll",
+        "lib/net6.0/ru/System.CommandLine.resources.dll",
+        "lib/net6.0/tr/System.CommandLine.resources.dll",
+        "lib/net6.0/zh-Hans/System.CommandLine.resources.dll",
+        "lib/net6.0/zh-Hant/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/System.CommandLine.dll",
+        "lib/netstandard2.0/System.CommandLine.pdb",
+        "lib/netstandard2.0/System.CommandLine.xml",
+        "lib/netstandard2.0/cs/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/de/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/es/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/fr/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/it/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/ja/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/ko/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/pl/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/pt-BR/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/ru/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/tr/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/zh-Hans/System.CommandLine.resources.dll",
+        "lib/netstandard2.0/zh-Hant/System.CommandLine.resources.dll",
+        "system.commandline.2.0.0-beta4.22272.1.nupkg.sha512",
+        "system.commandline.nuspec"
       ]
     },
     "System.Drawing.Primitives/4.3.0": {
@@ -1541,35 +1666,30 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Emgu.CV >= 4.7.0.5276",
-      "Emgu.CV.runtime.windows >= 4.7.0.5276"
+      "Emgu.CV.runtime.ubuntu-x64 >= 4.7.0.5276",
+      "Emgu.CV.runtime.windows >= 4.7.0.5276",
+      "System.CommandLine >= 2.0.0-beta4.22272.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wes\\.nuget\\packages\\": {},
-    "D:\\Software\\VS\\SDK\\NuGetPackages": {}
+    "/home/westonshakespear/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wes\\github-repos\\opencv_stuff\\ArucoCLI\\ArucoCLI.csproj",
+      "projectUniqueName": "/home/westonshakespear/Github/opencv_stuff/ArucoCLI/ArucoCLI.csproj",
       "projectName": "ArucoCLI",
-      "projectPath": "C:\\Users\\wes\\github-repos\\opencv_stuff\\ArucoCLI\\ArucoCLI.csproj",
-      "packagesPath": "C:\\Users\\wes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wes\\github-repos\\opencv_stuff\\ArucoCLI\\obj\\",
+      "projectPath": "/home/westonshakespear/Github/opencv_stuff/ArucoCLI/ArucoCLI.csproj",
+      "packagesPath": "/home/westonshakespear/.nuget/packages/",
+      "outputPath": "/home/westonshakespear/Github/opencv_stuff/ArucoCLI/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Software\\VS\\SDK\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\wes\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/westonshakespear/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1592,9 +1712,17 @@
             "target": "Package",
             "version": "[4.7.0.5276, )"
           },
+          "Emgu.CV.runtime.ubuntu-x64": {
+            "target": "Package",
+            "version": "[4.7.0.5276, )"
+          },
           "Emgu.CV.runtime.windows": {
             "target": "Package",
             "version": "[4.7.0.5276, )"
+          },
+          "System.CommandLine": {
+            "target": "Package",
+            "version": "[2.0.0-beta4.22272.1, )"
           }
         },
         "imports": [
@@ -1608,12 +1736,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.8, 7.0.8]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[7.0.8, 7.0.8]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.305/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,7 +9,9 @@
       "ArucoCLI/1.0.0": {
         "dependencies": {
           "Emgu.CV": "4.7.0.5276",
-          "Emgu.CV.runtime.windows": "4.7.0.5276"
+          "Emgu.CV.runtime.ubuntu-x64": "4.7.0.5276",
+          "Emgu.CV.runtime.windows": "4.7.0.5276",
+          "System.CommandLine": "2.0.0-beta4.22272.1"
         },
         "runtime": {
           "ArucoCLI.dll": {}
@@ -28,6 +30,18 @@
           }
         }
       },
+      "Emgu.CV.runtime.ubuntu-x64/4.7.0.5276": {
+        "dependencies": {
+          "Emgu.CV": "4.7.0.5276"
+        },
+        "runtimeTargets": {
+          "runtimes/ubuntu-x64/native/libcvextern.so": {
+            "rid": "ubuntu-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "Emgu.CV.runtime.windows/4.7.0.5276": {
         "dependencies": {
           "Emgu.CV": "4.7.0.5276",
@@ -39,27 +53,27 @@
           "runtimes/win-arm64/native/cvextern.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "4.7.0.5276"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/cvextern.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.7.0.5276"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/opencv_videoio_ffmpeg470_64.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "2022.12.0.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/cvextern.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "4.7.0.5276"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/opencv_videoio_ffmpeg470.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "2022.12.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -68,42 +82,42 @@
           "runtimes/win-arm64/native/concrt140.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/msvcp140.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/msvcp140_1.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/msvcp140_2.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/msvcp140_atomic_wait.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/msvcp140_codecvt_ids.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/vcruntime140.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/vcruntime140_1.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -112,42 +126,42 @@
           "runtimes/win-x64/native/concrt140.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/msvcp140.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/msvcp140_1.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/msvcp140_2.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/msvcp140_atomic_wait.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/msvcp140_codecvt_ids.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/vcruntime140.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/vcruntime140_1.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -156,37 +170,37 @@
           "runtimes/win-x86/native/concrt140.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/msvcp140.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/msvcp140_1.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/msvcp140_2.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/msvcp140_atomic_wait.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/msvcp140_codecvt_ids.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/vcruntime140.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "14.34.31938.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -196,6 +210,55 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
           "Microsoft.NETCore.Targets": "1.1.3"
+        }
+      },
+      "System.CommandLine/2.0.0-beta4.22272.1": {
+        "runtime": {
+          "lib/net6.0/System.CommandLine.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.22.27201"
+          }
+        },
+        "resources": {
+          "lib/net6.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net6.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net6.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net6.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net6.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net6.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net6.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net6.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net6.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net6.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net6.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net6.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net6.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
         }
       },
       "System.Drawing.Primitives/4.3.0": {
@@ -329,6 +392,13 @@
       "path": "emgu.cv/4.7.0.5276",
       "hashPath": "emgu.cv.4.7.0.5276.nupkg.sha512"
     },
+    "Emgu.CV.runtime.ubuntu-x64/4.7.0.5276": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-01w8siYypBCkRnHRzImKGIVPqOIyF01TTtQqCMM8GihveDoeF4KvKBkeO38fwMlQzzZHHaIiZfnSP16maalmDQ==",
+      "path": "emgu.cv.runtime.ubuntu-x64/4.7.0.5276",
+      "hashPath": "emgu.cv.runtime.ubuntu-x64.4.7.0.5276.nupkg.sha512"
+    },
     "Emgu.CV.runtime.windows/4.7.0.5276": {
       "type": "package",
       "serviceable": true,
@@ -377,6 +447,13 @@
       "sha512": "sha512-c/qWt2LieNZIj1jGnVNsE2Kl23Ya2aSTBuXMD6V7k9KWr6l16Tqdwq+hJScEpWER9753NWC8h96PaVNY5Ld7Jw==",
       "path": "runtime.native.system/4.3.0",
       "hashPath": "runtime.native.system.4.3.0.nupkg.sha512"
+    },
+    "System.CommandLine/2.0.0-beta4.22272.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1uqED/q2H0kKoLJ4+hI2iPSBSEdTuhfCYADeJrAqERmiGQ2NNacYKRNEQ+gFbU4glgVyK8rxI+ZOe1onEtr/Pg==",
+      "path": "system.commandline/2.0.0-beta4.22272.1",
+      "hashPath": "system.commandline.2.0.0-beta4.22272.1.nupkg.sha512"
     },
     "System.Drawing.Primitives/4.3.0": {
       "type": "package",
