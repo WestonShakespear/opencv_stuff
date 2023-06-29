@@ -6,24 +6,85 @@ using System.CommandLine;
 namespace testing;
 
 public class Program {
-    public static void Main(params string[] args)
+    public static int Main(string[] args)
     {
-        RootCommand command = new RootCommand(
-            "Generates Aruco Markers"
-        );
+
+        var fileOption = new Option<FileInfo?>(
+            name: "--file",
+            description: "The file to read and display on the console.");
+
+        var delayOption = new Option<int>(
+            name: "--delay",
+            description: "Delay between lines, specified as milliseconds per character in a line.",
+            getDefaultValue: () => 42);
+
+        var fgcolorOption = new Option<ConsoleColor>(
+            name: "--fgcolor",
+            description: "Foreground color of text displayed on the console.",
+            getDefaultValue: () => ConsoleColor.White);
+
+        var lightModeOption = new Option<bool>(
+            name: "--light-mode",
+            description: "Background color of text displayed on the console: default is black, light mode is white.");
+
 
         var xSizeOption = new Option<int>(
             name: "-x",
             description: "The number of tiles in the x direction"
         );
 
-        Option ySizeOption = new Option<int>(
+        var ySizeOption = new Option<int>(
             name: "-y",
             description: "The number of tiles in the y direction"
         );
 
-        command.AddOption(xSizeOption);
-        command.AddOption(ySizeOption);
+
+        var rootCommand = new RootCommand("Sample app for System.CommandLine");
+        //rootCommand.AddOption(fileOption);
+
+        var readCommand = new Command("read", "Read and display the file.")
+            {
+                fileOption,
+                delayOption,
+                fgcolorOption,
+                lightModeOption
+            };
+        rootCommand.AddCommand(readCommand);
+
+
+        var arucoCommand = new Command("aruco", "Create a single aruco marker");
+
+        rootCommand.AddCommand(arucoCommand);
+
+        var arucoBoardCommand = new Command("board", "Create a grid of aruco markers")
+        {
+            xSizeOption,
+            ySizeOption
+        };
+
+        rootCommand.AddCommand(arucoBoardCommand);
+
+        var charucoCommand = new Command("charuco", "Create a charuco board")
+        {
+            xSizeOption,
+            ySizeOption
+        };
+
+        rootCommand.AddCommand(charucoCommand);
+
+        // readCommand.SetHandler(async (file, delay, fgcolor, lightMode) =>
+        //     {
+        //         await ReadFile(file!, delay, fgcolor, lightMode);
+        //     },
+        //     fileOption, delayOption, fgcolorOption, lightModeOption);
+
+        return rootCommand.InvokeAsync(args).Result;
+
+
+        
+
+        // command.AddOption(xSizeOption);
+        // command.AddOption(ySizeOption);
 
         //Mat? output = generateGridBoard();
 
@@ -37,6 +98,19 @@ public class Program {
         //     CvInvoke.WaitKey(0);
         //     CvInvoke.DestroyAllWindows();
         // }
+    }
+
+    internal static async Task ReadFile(
+            FileInfo file, int delay, ConsoleColor fgColor, bool lightMode)
+    {
+        Console.BackgroundColor = lightMode ? ConsoleColor.White : ConsoleColor.Black;
+        Console.ForegroundColor = fgColor;
+        List<string> lines = File.ReadLines(file.FullName).ToList();
+        foreach (string line in lines)
+        {
+            Console.WriteLine(line);
+            await Task.Delay(delay * line.Length);
+        };
     }
 
     public static Mat? generateGridBoard()
